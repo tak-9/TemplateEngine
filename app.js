@@ -125,9 +125,14 @@ function enterMore(){
             if (ansAnymore.anyMore) { 
                 askBasicQuestions();
             } else { 
-                // ===== This is the end of inquirer =====
-                //console.log(team);
-                generateHTML.createHTML(team);            }
+                if (isThereManagerInTeam()){
+                    // ===== This is the end of inquirer. Go to GenerateHTML(). =====
+                    generateHTML.createHTML(team);
+                } else {
+                    console.log("\nAt least one manager is required for a team.");
+                    askBasicQuestions();
+                }
+            }
         })
         .catch((err) => { console.log("Error in Inquirer Anymore.", err) }); 
 }

@@ -1,5 +1,6 @@
 const fs = require("fs");
 const ejs = require("ejs");
+const outputFile = "./output/team.html";
 
 function createHTML(team) {
     //console.log(team);
@@ -55,8 +56,9 @@ function createHTML(team) {
 
     //console.log(htmlStr);
 
-    fs.writeFile("./output/team.html", htmlStr, function(err){
+    fs.writeFile(outputFile, htmlStr, function(err){
         if (err) throw err;
+        console.log("Written to file: ", outputFile);
     });
 };
 
