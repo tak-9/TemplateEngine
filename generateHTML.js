@@ -36,6 +36,7 @@ function createHTML(team) {
         var htmlParams = {
             id: item.getId(),
             name: item.getName(),
+            icon: item.getIcon(),
             role: item.getRole(),
             email: item.getEmail(),
             option1def: option1def,
@@ -43,7 +44,7 @@ function createHTML(team) {
         };
         
         if (i % 3 === 0){
-            htmlStr += "<div class='row'>\n"
+            htmlStr += "\n<div class='row'>\n"
         }
         htmlStr += ejs.render(htmlBodyTemplate, {htmlParams: htmlParams});
 
