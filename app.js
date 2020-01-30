@@ -64,13 +64,13 @@ function checkNumber(str){
 }
 
 function validateEmailFormat(str){
-    // http://regexlib.com/Search.aspx?k=email
-    var emailRegEx = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$";
-    if (str.match(emailRegEx) === null) {
+    // https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+    var emailRegEx = /\S+@\S+\.\S+/;
+    if (emailRegEx.test(str)){ 
+        return true;
+    } else {
         console.log("\nPlease enter a valid Email!");
         return false;
-    } else { 
-        return true;
     }
 }
 
