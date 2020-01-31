@@ -6,12 +6,17 @@ This is a software engineering team generator command line application. The appl
 ## Usage
 
 1. Install libraries 
+
 $ npm install 
 
 2. Run application  
+
 $ node app.js 
 
-3. HTML file is generated once application is completed. 
+3. HTML file is generated once application is completed in ./output/team.html . 
+
+If you have changed the default output filename, html file is output in the specified directory. 
+
 Open it in your web browser.
 
 ## Testing 
