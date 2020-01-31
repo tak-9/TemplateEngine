@@ -1,68 +1,42 @@
 const fs = require("fs");
 const ejs = require("ejs");
-const outputFile = "./output/team.html";
 
-function createHTML(team) {
-    //console.log(team);
-    var htmlStr = fs.readFileSync("./templates/header_template.ejs", "utf8");
-    const htmlBodyTemplate = fs.readFileSync("./templates/card_template.ejs", "utf8");
+// function createHTML(team) {
+//     createHTMLcard(team);
+//     createHTMLtable(team);
+// };
 
-    team.forEach(function(item, i, teamArr){ 
-        var option1def;
-        var option1val;
-        switch(item.getRole()) { 
-            case "Manager":
-                option1def = "Office number";  
-                option1val = item.getOfficeNumber();    
-                break;
-            case "Engineer":
-                option1def = "Github";  
-                option1val = item.getGithub();    
-                break;
-            case "Intern": 
-                option1def = "School";  
-                option1val = item.getSchool();    
-                break;
-            case "Employee": 
-                option1def = " ";  
-                option1val = " ";    
-                break;
-            default:
-                option1def = " ";  
-                option1val = " ";
-                break;
-        }
+function createHTMLcard(team) { 
+    var htmlCardStr;
+    const outputFile =  __dirname + "/output/team.html";
 
-        var htmlParams = {
-            id: item.getId(),
-            name: item.getName(),
-            icon: item.getIcon(),
-            role: item.getRole(),
-            email: item.getEmail(),
-            option1def: option1def,
-            option1val: option1val
-        };
-        
-        if (i % 3 === 0){
-            htmlStr += "\n<div class='row'>\n"
-        }
-        htmlStr += ejs.render(htmlBodyTemplate, {htmlParams: htmlParams});
-
-        if ((i % 3 === 2) || (i === teamArr.length - 1)){
-            htmlStr += "</div><!--end row -->\n"
-        }
+    ejs.renderFile(__dirname + "/templates/card.ejs", {team: team}, function(err,str){
+        if (err) throw err;
+        htmlCardStr = str;
     });
 
-    htmlStr += "</div>\n</body>" 
-
-    //console.log(htmlStr);
-
-    fs.writeFile(outputFile, htmlStr, function(err){
+    fs.writeFile(outputFile, htmlCardStr, function(err){
         if (err) throw err;
         console.log("Written to file: ", outputFile);
     });
-};
+}
+
+function createHTMLtable(team) { 
+    var htmlTableStr;
+    const outputFile = __dirname  + "/output/team.html";
+
+    ejs.renderFile(__dirname + "/templates/table.ejs", {team: team}, function(err,str){
+        if (err) throw err;
+        htmlTableStr = str;
+    });
+
+    fs.writeFile(outputFile, htmlTableStr, function(err){
+        if (err) throw err;
+        console.log("Written to file: ", outputFile);
+    });
+}
 
 module.exports = { 
-    createHTML: createHTML
+    createHTMLcard: createHTMLcard,
+    createHTMLtable: createHTMLtable
 };

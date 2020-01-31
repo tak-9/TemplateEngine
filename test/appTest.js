@@ -3,7 +3,7 @@ const Intern = require("../lib/Intern");
 const Engineer = require("../lib/Engineer");
 
 const generateHTML = require("../generateHTML");
-const generateHTMLtable = require("../generateHTMLtable");
+const generateHTMLtable = require("../generateHTML");
 
 // Test Data
 var m = new Manager("Bar", 1, "test@test.com", 100);
