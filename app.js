@@ -157,11 +157,7 @@ function chooseOutputFormat(){
         var defaultFilename = path.resolve(__dirname  + "/output/team.html");
         inquirer.prompt([{type: "input", message: "Enter output filename: ", name: "outputFilename", validate: checkHtmlFilename, default: defaultFilename}])
             .then((ansFilename)=>{
-                if (ansLayout.outputLayout==="card") { 
-                    generateHTML.createHTMLcard(outputFilename, team);
-                } else {
-                    generateHTML.createHTMLtable(outputFilename, team);
-                }        
+                generateHTML.createHTML(ansFilename.outputFilename, ansLayout.outputLayout, team);
             })
             .catch((err) => { console.log("Error in Inquirer filename.", err) }); 
     })

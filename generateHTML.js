@@ -1,33 +1,32 @@
 const fs = require("fs");
 const ejs = require("ejs");
 
-function createHTMLcard(outputFilename, team) { 
-    var htmlCardStr;
-    ejs.renderFile(__dirname + "/templates/card.ejs", {team: team}, function(err,str){
+function createHTML(outputFilename, outputLayout, team) { 
+    var ejsFile;
+    switch(outputLayout) {
+        case 'table':
+            ejsFile = __dirname + "/templates/table.ejs";
+            break;
+        case 'card':
+            ejsFile = __dirname + "/templates/card.ejs";
+            break;
+        default:
+            ejsFile = __dirname + "/templates/table.ejs";
+            break;
+    }
+    
+    var htmlStr;
+    ejs.renderFile(ejsFile, {team: team}, function(err,str){
         if (err) throw err;
-        htmlCardStr = str;
+        htmlStr = str;
     });
 
-    fs.writeFile(outputFilename, htmlCardStr, function(err){
+    fs.writeFile(outputFilename, htmlStr, function(err){
         if (err) throw err;
-        console.log("Written to file: ", outputFile);
-    });
-}
-
-function createHTMLtable(outputFilename, team) { 
-    var htmlTableStr;
-    ejs.renderFile(__dirname + "/templates/table.ejs", {team: team}, function(err,str){
-        if (err) throw err;
-        htmlTableStr = str;
-    });
-
-    fs.writeFile(outputFilename, htmlTableStr, function(err){
-        if (err) throw err;
-        console.log("Written to file: ", outputFile);
+        console.log("Written to file: ", outputFilename);
     });
 }
 
 module.exports = { 
-    createHTMLcard: createHTMLcard,
-    createHTMLtable: createHTMLtable
+    createHTML: createHTML
 };
