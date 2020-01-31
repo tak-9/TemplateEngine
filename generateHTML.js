@@ -1,36 +1,27 @@
 const fs = require("fs");
 const ejs = require("ejs");
 
-// function createHTML(team) {
-//     createHTMLcard(team);
-//     createHTMLtable(team);
-// };
-
-function createHTMLcard(team) { 
+function createHTMLcard(outputFilename, team) { 
     var htmlCardStr;
-    const outputFile =  __dirname + "/output/team.html";
-
     ejs.renderFile(__dirname + "/templates/card.ejs", {team: team}, function(err,str){
         if (err) throw err;
         htmlCardStr = str;
     });
 
-    fs.writeFile(outputFile, htmlCardStr, function(err){
+    fs.writeFile(outputFilename, htmlCardStr, function(err){
         if (err) throw err;
         console.log("Written to file: ", outputFile);
     });
 }
 
-function createHTMLtable(team) { 
+function createHTMLtable(outputFilename, team) { 
     var htmlTableStr;
-    const outputFile = __dirname  + "/output/team.html";
-
     ejs.renderFile(__dirname + "/templates/table.ejs", {team: team}, function(err,str){
         if (err) throw err;
         htmlTableStr = str;
     });
 
-    fs.writeFile(outputFile, htmlTableStr, function(err){
+    fs.writeFile(outputFilename, htmlTableStr, function(err){
         if (err) throw err;
         console.log("Written to file: ", outputFile);
     });

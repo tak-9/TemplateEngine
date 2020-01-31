@@ -1,8 +1,8 @@
-const Employee = require("./lib/Employee");
+const inquirer = require("inquirer");
+const path = require("path");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
-const inquirer = require("inquirer");
 const generateHTML = require("./generateHTML");
 
 var team = [];
@@ -60,6 +60,20 @@ function checkNumber(str){
         return false;
     } else { 
         return true;
+    }
+}
+
+function checkHtmlFilename(str) { 
+    if (!checkMandatory) {
+        return false;
+    }
+
+    var regEx = /^.*\.(html|htm)$/i;
+    if (regEx.test(str)){
+        return true;
+    } else {
+        console.log("\nFilename must end with html or htm.");
+        return false;        
     }
 }
 
@@ -138,14 +152,18 @@ function enterMore(){
 
 
 function chooseOutputFormat(){
-    inquirer.prompt([{type: "list", message: "Choose Layout. Card or Table? :", name: "outputLayout", choices: ["card", "table"], default: "card"}])
+    inquirer.prompt([{type: "list", message: "Do you want to output in Card or Table format? :", name: "outputLayout", choices: ["card", "table"], default: "card"}])
     .then((ansLayout)=> {
-        console.log(ansLayout.outputLayout);
-        if (ansLayout.outputLayout==="card") { 
-            generateHTML.createHTMLcard(team);
-        } else {
-            generateHTML.createHTMLtable(team);
-        }
+        var defaultFilename = path.resolve(__dirname  + "/output/team.html");
+        inquirer.prompt([{type: "input", message: "Enter output filename: ", name: "outputFilename", validate: checkHtmlFilename, default: defaultFilename}])
+            .then((ansFilename)=>{
+                if (ansLayout.outputLayout==="card") { 
+                    generateHTML.createHTMLcard(outputFilename, team);
+                } else {
+                    generateHTML.createHTMLtable(outputFilename, team);
+                }        
+            })
+            .catch((err) => { console.log("Error in Inquirer filename.", err) }); 
     })
     .catch((err) => { console.log("Error in Inquirer outputformat.", err) }); 
 }

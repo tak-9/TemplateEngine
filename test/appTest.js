@@ -1,9 +1,7 @@
 const Manager = require("../lib/Manager");
 const Intern = require("../lib/Intern");
 const Engineer = require("../lib/Engineer");
-
 const generateHTML = require("../generateHTML");
-const generateHTMLtable = require("../generateHTML");
 
 // Test Data
 var m = new Manager("Bar", 1, "test@test.com", 100);
@@ -15,5 +13,8 @@ var i2 = new Intern("Int2", 6, "ddfadasdst@test.com", "uni123");
 var i3 = new Intern("Int3", 7, "int3@test.com", "uni12345");
 var team = [m, e1, e2, e3, i1, i2, i3];
 
-//generateHTMLtable.createHTMLtable(team);
-generateHTMLtable.createHTMLcard(team);
+var outputFilenameTable = path.resolve(__dirname  + "/output/team_table.html");
+var outputFilenameCard = path.resolve(__dirname  + "/output/team_card.html");
+
+generateHTML.createHTMLtable(outputFilenameTable, team);
+generateHTML.createHTMLcard(outputFilenameCard, team);
