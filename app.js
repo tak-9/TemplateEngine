@@ -3,7 +3,7 @@ const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 const inquirer = require("inquirer");
-const generateHTML = require("./generateHTML");
+const generateHTML = require("./generateHTMLtable");
 
 var team = [];
 var id = 1;
@@ -126,8 +126,7 @@ function enterMore(){
                 askBasicQuestions();
             } else { 
                 if (isThereManagerInTeam()){
-                    // ===== This is the end of inquirer. Go to GenerateHTML(). =====
-                    generateHTML.createHTML(team);
+                    chooseOutputFormat();
                 } else {
                     console.log("\nAt least one manager is required for a team.");
                     askBasicQuestions();
@@ -137,3 +136,16 @@ function enterMore(){
         .catch((err) => { console.log("Error in Inquirer Anymore.", err) }); 
 }
 
+
+function chooseOutputFormat(){
+    inquirer.prompt([{type: "list", message: "Choose Layout. Card or Table? :", name: "outputLayout", choices: ["card", "table"], default: "card"}])
+    .then((ansLayout)=> {
+        console.log(ansLayout.outputLayout);
+        if (ansLayout.outputLayout==="card") { 
+            generateHTML.createHTMLcard(team);
+        } else {
+            generateHTML.createHTMLtable(team);
+        }
+    })
+    .catch((err) => { console.log("Error in Inquirer outputformat.", err) }); 
+}
