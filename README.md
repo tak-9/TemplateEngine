@@ -13,7 +13,7 @@ $ npm install
 
 $ node app.js 
 
-3. HTML file is generated once application is completed in ./output/team.html . 
+3. Once application is completed, HTML file is generated in ./output/team.html. 
 
 If you have changed the default output filename, html file is output in the specified directory. 
 
@@ -35,6 +35,8 @@ $ node appTest.js
 Inquirer.js https://www.npmjs.com/package/inquirer
 
 EJS https://www.npmjs.com/package/ejs
+
+Using the EJS allowed me to write control statement within the html template files. All I need to do is to pass the array of data objects to  html template file. Thanks to this library, I was able to make the application to provide choice of two layout of html easily.
 
 Bootstrap https://getbootstrap.com/
 
