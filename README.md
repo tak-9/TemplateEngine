@@ -15,16 +15,13 @@ $ npm install
 ```
 
 ## Usage 
-Run application  
+1.Run application  
 ```
 $ node app.js 
 ```
-
-Follow the screen messages and enter names of team members. 
-
-Choose output format (card or table).
-
-Enter output filename.
+2. Follow the screen messages and enter names of team members. 
+3. Choose output format (card or table).
+4. Enter output filename.
 
 <img src="screencapture3.png" width="500px">
 
