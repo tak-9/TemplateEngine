@@ -3,9 +3,18 @@
 ## Description 
 This is a command line application which generates a software engineering team table in html. The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user. 
 
+
+## Screen Capture
+
+<img src="screencapture.png" width="500px">
+
+
+<img src="screencapture2.png" width="500px">
+
+
 ## Installation 
 #### Prerequisite
-Ensure node.js is installed as this application is developed using node.js. 
+Ensure [Node.js](https://nodejs.org) is installed as this application is developed using node.js. 
 
 #### Install libraries 
 
@@ -19,7 +28,7 @@ Run application
 $ node app.js 
 ```
 
-Once application is completed, HTML file is generated in ./output/team.html. 
+Once application is completed, HTML file is generated in `./output/team.html`. 
 
 If you have changed the default output filename, html file is output in the specified directory. 
 
@@ -43,7 +52,7 @@ The test tool was built using Jest.
 
 ## Technologies
 
-Node.js, [Inquirer.js](https://www.npmjs.com/package/inquirer), [EJS](https://www.npmjs.com/package/ejs), [Bootstrap](https://getbootstrap.com/), [Jest](https://jestjs.io/)
+[Node.js](https://nodejs.org), [Inquirer.js](https://www.npmjs.com/package/inquirer), [EJS](https://www.npmjs.com/package/ejs), [Bootstrap](https://getbootstrap.com/), [Jest](https://jestjs.io/)
 
 
 Using the EJS allowed me to write control statement within the html template files. All I need to do is to pass the array of data objects to  html template file. Thanks to this library, I was able to make the application to provide choice of two layout of html easily.
@@ -51,11 +60,3 @@ Using the EJS allowed me to write control statement within the html template fil
 
 ## Credit 
 Web icons provided by Fontawesome.
-
-
-## Screen Capture
-
-<img src="screencapture.png" width="500px">
-
-
-<img src="screencapture2.png" width="500px">
