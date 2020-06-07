@@ -30,10 +30,10 @@ Once application is completed, HTML file is generated in `./output/team.html`.
 
 If you have changed the default output filename, html file is output in the specified directory. 
 
-
+#### Sample output by Card
 <img src="screencapture.png" width="500px">
 
-
+#### Sample output by Table
 <img src="screencapture2.png" width="500px">
 
 
