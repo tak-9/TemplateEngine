@@ -48,7 +48,7 @@ Also, use the following command, if you want to test the html output without usi
 $ node appTest.js
 ```
 
-The test tool was built using Jest.
+The test tool is built using [Jest](https://jestjs.io/).
 
 ## Technologies
 
@@ -59,4 +59,4 @@ Using the EJS allowed me to write control statement within the html template fil
 
 
 ## Credit 
-Web icons provided by Fontawesome.
+Web icons provided by [Fontawesome](https://fontawesome.com/).
