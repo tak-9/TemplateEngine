@@ -28,7 +28,7 @@ $ node app.js
 
 Once application is completed, HTML file is generated in `./output/team.html`. 
 
-If you have changed the default output filename, html file is output in the specified directory. 
+If you have changed the default output filename, html file is output in the specified directory. You can open the html file with a web browser to see the output. 
 
 #### Sample output by Card
 <img src="screencapture.png" width="500px">
