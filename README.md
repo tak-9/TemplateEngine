@@ -15,7 +15,7 @@ $ npm install
 ```
 
 ## Usage 
-1.Run application  
+1. Run application  
 ```
 $ node app.js 
 ```
@@ -59,8 +59,8 @@ The test tool is built using [Jest](https://jestjs.io/).
 [Node.js](https://nodejs.org), [Inquirer.js](https://www.npmjs.com/package/inquirer), [EJS](https://www.npmjs.com/package/ejs), [Bootstrap](https://getbootstrap.com/), [Jest](https://jestjs.io/)
 
 
-Using the EJS allowed me to write control statement within the html template files. All I need to do is to pass the array of data objects to  html template file. Thanks to this library, I was able to make the application to provide choice of two layout of html easily.
+Using [EJS](https://www.npmjs.com/package/ejs) allowed me to write control statement within the html template files. All I need to do is to pass the array of data objects to  html template file. Thanks to this library, I was able to make the application to provide choice of two layout of html easily.
 
 
 ## Credit 
-Web icons provided by [Fontawesome](https://fontawesome.com/).
+Web icons provided by [fontawesome.com](https://fontawesome.com/).
